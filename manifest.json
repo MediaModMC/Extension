@@ -3,6 +3,10 @@
   "name": "MediaMod",
   "version": "1.0",
   "description": "Adds web service integrations for MediaMod",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
