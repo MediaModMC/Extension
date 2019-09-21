@@ -33,8 +33,6 @@ setInterval(() => {
         ],
         images: [
           {
-            height: 100,
-            width: 100,
             url: albumart
           }
         ]
