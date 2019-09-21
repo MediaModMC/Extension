@@ -10,23 +10,23 @@
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
-      "js": ["sites/youtube.js", "depends/jquery.js"]
+      "js": ["sites/youtube.js", "depends/jquery.js", "main.js"]
     },
     {
       "matches": ["https://beta.music.apple.com/*"],
-      "js": ["sites/applemusic.js", "depends/jquery.js"]
+      "js": ["sites/applemusic.js", "depends/jquery.js", "main.js"]
     },
     {
       "matches": ["https://*.soundcloud.com/*"],
-      "js": ["sites/soundcloud.js", "depends/jquery.js"]
+      "js": ["sites/soundcloud.js", "depends/jquery.js", "main.js"]
     },
     {
       "matches": ["https://music.youtube.com/*"],
-      "js": ["sites/youtubemusic.js", "depends/jquery.js"]
+      "js": ["sites/youtubemusic.js", "depends/jquery.js", "main.js"]
     },
     {
       "matches": ["https://play.google.com/music/*"],
-      "js": ["sites/googleplay.js", "depends/jquery.js"]
+      "js": ["sites/googleplay.js", "depends/jquery.js", "main.js"]
     }
   ],
   "permissions": ["*://localhost/*"]
