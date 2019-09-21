@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "MediaMod",
+  "version": "1.0",
+  "description": "Adds web service integrations for MediaMod",
+  "content_scripts": [
+    {
+      "matches": ["https://play.google.com/music/*"],
+      "js": ["main.js"]
+    }
+  ],
+  "permissions": ["storage", "*://localhost/*"]
+}
