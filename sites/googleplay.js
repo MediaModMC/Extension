@@ -11,15 +11,26 @@ setInterval(() => {
   }
 
   data = {
-    songTitle: title,
-    songArtist: artist,
-    albumURL: albumart,
-    songAlbum: albumname,
-    currentTimestamp: timestamp,
-    songLength: length
+    progress_ms: timestamp,
+    item: {
+      album: {
+        artists: [
+          {
+            name: artist
+          }
+        ],
+        images: [
+          {
+            height: 100,
+            width: 100,
+            url: albumart
+          }
+        ]
+      },
+      duration_ms: length,
+      name: title
+    }
   };
-
-  console.log("Sending post request");
 
   fetch("http://localhost:9102/", {
     method: "post",
@@ -32,6 +43,4 @@ setInterval(() => {
     .catch(error =>
       console.error("[MediaMod] Error when sending request", error)
     );
-
-  console.log("ae");
 }, 3000);
