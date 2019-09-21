@@ -29,5 +29,5 @@
       "js": ["sites/googleplay.js", "depends/jquery.js"]
     }
   ],
-  "permissions": ["storage", "*://localhost/*"]
+  "permissions": ["*://localhost/*"]
 }
