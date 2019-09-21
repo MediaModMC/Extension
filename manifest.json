@@ -5,6 +5,10 @@
   "description": "Adds web service integrations for MediaMod",
   "content_scripts": [
     {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["sites/youtube.js", "depends/jquery.js"]
+    },
+    {
       "matches": ["https://beta.music.apple.com/*"],
       "js": ["sites/applemusic.js", "depends/jquery.js"]
     },
