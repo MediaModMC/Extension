@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["https://play.google.com/music/*"],
-      "js": ["main.js"]
+      "js": ["main.js", "depends/jquery.js"]
     }
   ],
   "permissions": ["storage", "*://localhost/*"]
