@@ -1,33 +1,33 @@
 setInterval(() => {
-  title = $(".title")
+  let title = $(".title")
     .filter(".style-scope")
     .filter(".ytmusic-player-bar")
     .attr("title");
-  data = $(".byline")
+  let data = $(".byline")
     .filter(".style-scope")
     .filter(".ytmusic-player-bar")
     .attr("title");
-  var [artist, albumname, releaseDate] = data.split(" • ");
-  albumart = $(".image")
+  let [artist, albumname, releaseDate] = data.split(" • ");
+  let albumart = $(".image")
     .filter(".style-scope")
     .filter(".ytmusic-player-bar")
     .attr("src");
-  timestampSeconds = data = $("#progress-bar")
+  let timestampSeconds = data = $("#progress-bar")
     .filter(".style-scope")
     .filter(".ytmusic-player-bar")
     .attr("value");
-  lengthSeconds = data = $("#progress-bar")
+  let lengthSeconds = data = $("#progress-bar")
     .filter(".style-scope")
     .filter(".ytmusic-player-bar")
     .attr("aria-valuemax");
-  timestamp = timestampSeconds * 1000;
+  let timestamp = timestampSeconds * 1000;
   length = lengthSeconds * 1000;
 
-  if (title == "") {
+  if (title === "") {
     return;
   }
 
-  data = {
+  let json = {
     progress_ms: timestamp,
     item: {
       album: {
@@ -52,7 +52,7 @@ setInterval(() => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(json)
   })
     .then(response => console.log(response))
     .catch(error =>

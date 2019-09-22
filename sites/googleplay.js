@@ -1,16 +1,15 @@
 setInterval(() => {
-  title = $("#currently-playing-title").text();
-  artist = $("#player-artist").text();
-  albumart = $("#playerBarArt").attr("src");
-  albumname = $(".player-album").text();
-  timestamp = $("#material-player-progress").attr("value");
-  length = $("#material-player-progress").attr("aria-valuemax");
+  let title = $("#currently-playing-title").text();
+  let artist = $("#player-artist").text();
+  let albumart = $("#playerBarArt").attr("src");
+  let timestamp = $("#material-player-progress").attr("value");
+  let length = $("#material-player-progress").attr("aria-valuemax");
 
-  if (title == "") {
+  if (title === "") {
     return;
   }
 
-  data = {
+  let data = {
     progress_ms: timestamp,
     item: {
       album: {

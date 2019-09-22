@@ -3,3 +3,5 @@
 
 # web-ext output
 web-ext-artifacts/**
+
+.idea/**

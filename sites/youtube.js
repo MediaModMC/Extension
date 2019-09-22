@@ -1,28 +1,28 @@
 setInterval(() => {
-  title = $("h1")
+  let title = $("h1")
     .filter(".title")
     .filter(".style-scope")
     .filter(".ytd-video-primary-info-renderer")
     .text();
-  artist = $("#upload-info .ytd-channel-name")[0].innerText;
-  albumart =
-    "https://img.youtube.com/vi/" +
-    $("iframe:first")[0].baseURI.replace(
-      "https://www.youtube.com/watch?v=",
-      ""
-    ) +
-    "/0.jpg";
+  let artist = $("#upload-info .ytd-channel-name")[0].innerText;
+  let albumart =
+      "https://img.youtube.com/vi/" +
+      $("iframe:first")[0].baseURI.replace(
+          "https://www.youtube.com/watch?v=",
+          ""
+      ) +
+      "/0.jpg";
 
-  timestampSeconds = Math.floor($(".video-stream")[0].currentTime);
-  lengthSeconds = Math.floor($(".video-stream")[0].duration);
-  timestamp = timestampSeconds * 1000;
-  length = lengthSeconds * 1000;
+  let timestampSeconds = Math.floor($(".video-stream")[0].currentTime);
+  let lengthSeconds = Math.floor($(".video-stream")[0].duration);
+  let timestamp = timestampSeconds * 1000;
+  let length = lengthSeconds * 1000;
 
-  if (title == "") {
+  if (title === "") {
     return;
   }
 
-  data = {
+  let data = {
     progress_ms: timestamp,
     item: {
       album: {

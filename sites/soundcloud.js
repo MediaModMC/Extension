@@ -1,29 +1,29 @@
 setInterval(() => {
-  title = $(".playbackSoundBadge__titleLink")
+  let title = $(".playbackSoundBadge__titleLink")
     .filter(".sc-truncate")
     .attr("title");
-  artist = $(".playbackSoundBadge__lightLink").text();
-  albumart = $(
+  let artist = $(".playbackSoundBadge__lightLink").text();
+  let albumart = $(
     ".playbackSoundBadge__avatar > div:nth-child(1) > span:nth-child(1)"
   )[0]
     .style.backgroundImage.slice(4, -1)
     .replace(/"/g, "")
     .replace("50x50", "500x500");
-  albumname = title;
-  timestampSeconds = $("div")
+  let albumname = title;
+  let timestampSeconds = $("div")
     .filter(".playbackTimeline__progressWrapper")
     .attr("aria-valuenow");
-  lengthSeconds = $("div")
+  let  lengthSeconds = $("div")
     .filter(".playbackTimeline__progressWrapper")
     .attr("aria-valuemax");
-  timestamp = timestampSeconds * 1000;
-  length = lengthSeconds * 1000;
+  let timestamp = timestampSeconds * 1000;
+  let length = lengthSeconds * 1000;
 
-  if (title == "") {
+  if (title === "") {
     return;
   }
 
-  data = {
+  let data = {
     progress_ms: timestamp,
     item: {
       album: {

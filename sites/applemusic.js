@@ -1,14 +1,14 @@
 setInterval(() => {
-  title = $("span")
+  let title = $("span")
     .filter(".web-chrome-playback-lcd__song-name-scroll")
     .first()
     .text()
     .replace(/\s+/g, " ")
     .slice(1, -1);
-  artist = $("span")
+  let  artist = $("span")
     .filter(".web-chrome-playback-lcd__sub-copy-scroll-inner-text-wrapper")[0]
     .innerText.split(" —")[0];
-  albumart = $("img")
+  let albumart = $("img")
     .filter(".media-artwork-v2__image")
     .filter("[width='44']")
     .attr("srcset")
@@ -16,20 +16,20 @@ setInterval(() => {
     .replace("88w", "")
     .replace(" ", "")
     .replace("88x88", "100x100");
-  timestampSeconds = data = $("input")
+  let timestampSeconds = data = $("input")
     .filter(".web-chrome-playback-lcd__scrub")
     .attr("aria-valuenow");
-  lengthSeconds = data = $("input")
+  let lengthSeconds = data = $("input")
     .filter(".web-chrome-playback-lcd__scrub")
     .attr("aria-valuemax");
-  timestamp = timestampSeconds * 1000;
-  length = lengthSeconds * 1000;
+  let timestamp = timestampSeconds * 1000;
+  let length = lengthSeconds * 1000;
 
-  if (title == "") {
+  if (title === "") {
     return;
   }
 
-  data = {
+  let data = {
     progress_ms: timestamp,
     item: {
       album: {
