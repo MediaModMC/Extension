@@ -1,2 +1,5 @@
 # macOS
 .DS_Store
+
+# web-ext output
+web-ext-artifacts/**
