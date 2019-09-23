@@ -16,10 +16,10 @@ setInterval(() => {
         .replace("88w", "")
         .replace(" ", "")
         .replace("88x88", "100x100");
-    let timestampSeconds = data = $("input")
+    let timestampSeconds = $("input")
         .filter(".web-chrome-playback-lcd__scrub")
         .attr("aria-valuenow");
-    let lengthSeconds = data = $("input")
+    let lengthSeconds = $("input")
         .filter(".web-chrome-playback-lcd__scrub")
         .attr("aria-valuemax");
     let timestamp = timestampSeconds * 1000;

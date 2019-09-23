@@ -12,11 +12,11 @@ setInterval(() => {
         .filter(".style-scope")
         .filter(".ytmusic-player-bar")
         .attr("src");
-    let timestampSeconds = data = $("#progress-bar")
+    let timestampSeconds = $("#progress-bar")
         .filter(".style-scope")
         .filter(".ytmusic-player-bar")
         .attr("value");
-    let lengthSeconds = data = $("#progress-bar")
+    let lengthSeconds = $("#progress-bar")
         .filter(".style-scope")
         .filter(".ytmusic-player-bar")
         .attr("aria-valuemax");
