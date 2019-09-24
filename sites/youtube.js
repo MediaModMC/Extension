@@ -5,6 +5,17 @@ setInterval(() => {
     return match && match[7].length == 11 ? match[7] : false;
   }
 
+  if (youtube_parser($("iframe:first")[0].baseURI) === false) {
+    fetch("http://localhost:9102/disconnect", {
+      method: "get"
+    })
+      .then(response => console.log(response))
+      .catch(error =>
+        console.error("[MediaMod] Error when sending request", error)
+      );
+    return;
+  }
+
   let title = $("h1")
     .filter(".title")
     .filter(".style-scope")
