@@ -1,11 +1,8 @@
 setInterval(() => {
-  function youtube_parser(url) {
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    return match && match[7].length == 11 ? match[7] : false;
-  }
+    const url = new URL(window.location.href);
+    const videoId = url.searchParams.get("v");
 
-  if (youtube_parser($("iframe:first")[0].baseURI) === false) {
+    if (videoId === null) {
     fetch("http://localhost:9102/disconnect", {
       method: "get"
     })
@@ -24,13 +21,13 @@ setInterval(() => {
   let artist = $("#upload-info .ytd-channel-name")[0].innerText;
   let albumart =
     "https://img.youtube.com/vi/" +
-    youtube_parser($("iframe:first")[0].baseURI) +
+      videoId +
     "/0.jpg";
 
-  console.log(albumart);
+    let videoStream = $(".video-stream");
 
-  let timestampSeconds = Math.floor($(".video-stream")[0].currentTime);
-  let lengthSeconds = Math.floor($(".video-stream")[0].duration);
+    let timestampSeconds = Math.floor(videoStream[0].currentTime);
+    let lengthSeconds = Math.floor(videoStream[0].duration);
   let timestamp = timestampSeconds * 1000;
   let length = lengthSeconds * 1000;
 
