@@ -1,9 +1,15 @@
 setInterval(() => {
-    let title = $("#currently-playing-title").text();
-    let artist = $("#player-artist").text();
-    let albumart = $("#playerBarArt").attr("src");
-    let timestamp = $("#material-player-progress").attr("value");
-    let length = $("#material-player-progress").attr("aria-valuemax");
+    let title = document
+    .querySelector("#currently-playing-title")
+    .getAttribute("title");
+    let artist = document
+    .querySelector("#player-artist").innerText
+    let albumart = document
+    .querySelector("#playerBarArt").getAttribute("src");
+    let timestamp = document
+    .querySelector("#material-player-progress").getAttribute("value");
+    let length = document
+    .querySelector("#material-player-progress").getAttribute("aria-valuemax");
 
     if (title === "") {
         return;
