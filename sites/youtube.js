@@ -10,18 +10,23 @@ setInterval(() => {
       .catch(error =>
         console.error("[MediaMod] Error when sending request", error)
       );
+
     return;
   }
 
   const player = document.getElementById("movie_player");
   const paused = player ? player.classList.contains("paused-mode") : true;
 
-  const title = document.querySelector(
+  const titleElement = document.querySelector(
     "h1.title > .ytd-video-primary-info-renderer"
-  ).textContent;
-  const artist = document.querySelector(
+  );
+  const titleElementOld = document.querySelector("#eow-title");
+  const title = (titleElement ? titleElement : titleElementOld).textContent.trim();
+  const artistElement = document.querySelector(
     "#upload-info div#text-container.ytd-channel-name a"
-  ).textContent;
+  );
+  const artistElementOld = document.querySelector("#watch7-user-header .yt-user-info a");
+  const artist = (artistElement ? artistElement : artistElementOld).textContent.trim();
   const videoElement = /** @type {HTMLVideoElement} */ (document.querySelector(
     "video.video-stream.html5-main-video"
   ));
@@ -54,8 +59,6 @@ setInterval(() => {
       name: title
     }
   };
-
-  console.log(data);
 
   fetch("http://localhost:9102/", {
     method: "post",
