@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "MediaMod",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Adds web service integrations for MediaMod",
   "icons": {
     "48": "icons/icon-48.png",
