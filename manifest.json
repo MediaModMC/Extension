@@ -13,7 +13,7 @@
       "js": ["sites/youtube.js", "main.js"]
     },
     {
-      "matches": ["https://beta.music.apple.com/*"],
+      "matches": ["https://music.apple.com/*"],
       "js": ["sites/applemusic.js", "main.js"]
     },
     {
