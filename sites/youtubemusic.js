@@ -50,13 +50,22 @@ setInterval(() => {
     is_playing: !paused,
     item: {
       album: {
-        artists: artists,
+        artists: [
+          {
+            name: artist
+          }
+        ],
         images: [
           {
             url: albumArt
           }
         ]
       },
+      artists: [
+        {
+          name: artist
+        }
+      ],
       duration_ms: duration,
       name: title
     }

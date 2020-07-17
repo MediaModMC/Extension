@@ -17,7 +17,7 @@ setInterval(() => {
   )).srcset.split(",");
   const albumArt = srcset[srcset.length - 1].split(" ")[1]
     .replace("88x88", "100x100");
-  
+
   const inputRangeElement = document.querySelector(
     "input.web-chrome-playback-lcd__scrub"
   );
@@ -45,6 +45,11 @@ setInterval(() => {
           }
         ]
       },
+      artists: [
+        {
+          name: artist
+        }
+      ],
       duration_ms: length,
       name: title
     }

@@ -1,15 +1,15 @@
 setInterval(() => {
     let title = document
-    .querySelector("#currently-playing-title")
-    .getAttribute("title");
+        .querySelector("#currently-playing-title")
+        .getAttribute("title");
     let artist = document
-    .querySelector("#player-artist").innerText
+        .querySelector("#player-artist").innerText
     let albumart = document
-    .querySelector("#playerBarArt").getAttribute("src");
+        .querySelector("#playerBarArt").getAttribute("src");
     let timestamp = document
-    .querySelector("#material-player-progress").getAttribute("value");
+        .querySelector("#material-player-progress").getAttribute("value");
     let length = document
-    .querySelector("#material-player-progress").getAttribute("aria-valuemax");
+        .querySelector("#material-player-progress").getAttribute("aria-valuemax");
 
     if (title === "") {
         return;
@@ -30,6 +30,11 @@ setInterval(() => {
                     }
                 ]
             },
+            artists: [
+                {
+                    name: artist
+                }
+            ],
             duration_ms: length,
             name: title
         }

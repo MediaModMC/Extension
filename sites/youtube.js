@@ -55,6 +55,11 @@ setInterval(() => {
           }
         ]
       },
+      artists: [
+        {
+          name: artist
+        }
+      ],
       duration_ms: duration,
       name: title
     }
