@@ -1,0 +1,45 @@
+{
+  "name": "MediaMod",
+  "version": "2.0",
+  "description": "Adds web service integrations for MediaMod",
+  "permissions": ["*://localhost/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://soundcloud.com/*"
+      ],
+      "js": [
+        "soundcloud.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://music.apple.com/*"
+      ],
+      "js": [
+        "applemusic.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://music.youtube.com/*"
+      ],
+      "js": [
+        "youtubemusic.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://youtube.com/*"
+      ],
+      "js": [
+        "youtube.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2
+}

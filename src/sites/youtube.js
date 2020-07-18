@@ -1,16 +1,10 @@
-setInterval(() => {
+import { sockethandler } from "../app/app.js";
+
+function getMetadata() {
   const url = new URL(window.location.href);
   const videoId = url.searchParams.get("v");
 
   if (!videoId) {
-    fetch("http://localhost:9102/disconnect", {
-      method: "get"
-    })
-      .then(response => console.log(response))
-      .catch(error =>
-        console.error("[MediaMod] Error when sending request", error)
-      );
-
     return;
   }
 
@@ -21,12 +15,21 @@ setInterval(() => {
     "h1.title > .ytd-video-primary-info-renderer"
   );
   const titleElementOld = document.querySelector("#eow-title");
-  const title = (titleElement ? titleElement : titleElementOld).textContent.trim();
+  const title = (titleElement
+    ? titleElement
+    : titleElementOld
+  ).textContent.trim();
+
   const artistElement = document.querySelector(
     "#upload-info div#text-container.ytd-channel-name a"
   );
-  const artistElementOld = document.querySelector("#watch7-user-header .yt-user-info a");
-  const artist = (artistElement ? artistElement : artistElementOld).textContent.trim();
+  const artistElementOld = document.querySelector(
+    "#watch7-user-header .yt-user-info a"
+  );
+  const artist = (artistElement
+    ? artistElement
+    : artistElementOld
+  ).textContent.trim();
   const videoElement = /** @type {HTMLVideoElement} */ (document.querySelector(
     "video.video-stream.html5-main-video"
   ));
@@ -39,41 +42,33 @@ setInterval(() => {
     return;
   }
 
-  const data = {
+  return {
     progress_ms: progress,
     is_playing: !paused,
     item: {
       album: {
         artists: [
           {
-            name: artist
-          }
+            name: artist,
+          },
         ],
         images: [
           {
-            url: albumArt
-          }
-        ]
+            url: albumArt,
+          },
+        ],
       },
       artists: [
         {
-          name: artist
-        }
+          name: artist,
+        },
       ],
       duration_ms: duration,
-      name: title
-    }
-  };
-
-  fetch("http://localhost:9102/", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json"
+      name: title,
     },
-    body: JSON.stringify(data)
-  })
-    .then(response => console.log(response))
-    .catch(error =>
-      console.error("[MediaMod] Error when sending request", error)
-    );
+  };
+}
+
+setInterval(() => {
+  sockethandler.send(JSON.stringify(getMetadata()));
 }, 3000);

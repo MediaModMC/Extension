@@ -1,0 +1,26 @@
+{
+  "name": "mediamod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "scripts": {
+    "start": "webpack --watch --mode=development",
+    "build": "webpack --mode=production",
+    "distwin": "webpack --mode=production && 7z.exe a release/Extension.zip public\\*"
+  },
+  "author": "",
+  "license": "GPL",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
