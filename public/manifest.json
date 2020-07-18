@@ -33,6 +33,7 @@
     },
     {
       "matches": [
+        "https://www.youtube.com/*",
         "https://youtube.com/*"
       ],
       "js": [
