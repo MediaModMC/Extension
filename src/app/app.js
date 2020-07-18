@@ -13,6 +13,10 @@ class SocketHandler {
     }
 
     send(body) {
+        if(this.socket.readyState == WebSocket.CLOSED) {
+            this.socket = new WebSocket('ws://localhost:9102');
+        }
+        
         this.socket.send(body)
     }
 }
